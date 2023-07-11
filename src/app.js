@@ -1,11 +1,10 @@
-#!/usr/bin/env node
+require('dotenv').config()
 const express = require("express");
-const cors = require("cors")
 const path = require("path")
-require("../db/conn");
+require("./db/conn");
 // require("./db/contconn");
-const Register  = require("../models/registers")
-const Contact  = require("../models/contacts")
+const Register  = require("./models/registers")
+const Contact  = require("./models/contacts")
 const app = express();
 const hbs  = require("hbs")
 const bcrypt = require("bcryptjs")
@@ -17,7 +16,6 @@ const static_path = path.join(__dirname, "../public")
 const template_path = path.join(__dirname, "../templates/views")
 const partials_path = path.join(__dirname, "../templates/partials")
 
-app.use(cors())
 app.use(express.json());
 
 // app.use(cookieParser());
@@ -112,6 +110,7 @@ app.post("/register", async (req,res) =>{    //async - await method
 
         res.status(400).send(e);
         console.log("the error part page")
+        console.log(e);
 
     }
 
@@ -157,6 +156,7 @@ app.post("/login", async(req,res) =>{
     }catch(e){
         
         res.status(400).send("Invalid Email")
+        
     }   
 })
 

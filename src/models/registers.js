@@ -78,23 +78,22 @@ const studentRegSchema = new mongoose.Schema({
 
 
 // tokens part
-studentRegSchema.methods.generateAuthToken = async function(){
+studentRegSchema.methods.generateAuthToken = async function(req, res){
 
-    try{
+    // try{
 
-        console.log(this._id)
+    //     console.log(this._id)
 
-        const token = jwt.sign({_id:this._id.toString()}, process.env.SECRET_KEY)
-        this.tokens = this.tokens.concat({token: token})
-        await this.save()
-        return token;
+    //     const token = jwt.sign({_id:this._id.toString()}, process.env.SECRET_KEY)
+    //     this.tokens = this.tokens.concat({token: token})
+    //     await this.save()
+    //     return token;
 
-    }catch(e){
+    // }catch(e){
+    //     res.send("the error part" + e)
+    //     console.log("the error part" + e)
 
-        res.send("the error part" + e)
-        console.log("the error part" + e)
-
-    }
+    // }
 }
 
 //hash part
@@ -117,7 +116,7 @@ studentRegSchema.pre("save", async function(next){  //middleware concept
 
 // we will create a new collection
 
-const Register  = new mongoose.model('Register', studentRegSchema )
+const Register  = new mongoose.model('registers', studentRegSchema )
 
 module.exports = Register;
 
