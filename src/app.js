@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const express = require("express");
+const cors = require("cors")
 const path = require("path")
 require("../db/conn");
 // require("./db/contconn");
@@ -16,6 +17,7 @@ const static_path = path.join(__dirname, "../public")
 const template_path = path.join(__dirname, "../templates/views")
 const partials_path = path.join(__dirname, "../templates/partials")
 
+app.use(cors)
 app.use(express.json());
 
 // app.use(cookieParser());
