@@ -3,8 +3,8 @@ const express = require("express");
 const path = require("path")
 require("../db/conn");
 // require("./db/contconn");
-const Register  = require("./models/registers")
-const Contact  = require("./models/contacts")
+const Register  = require("../models/registers")
+const Contact  = require("../models/contacts")
 const app = express();
 const hbs  = require("hbs")
 const bcrypt = require("bcryptjs")
