@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/studentRegn", {useNewUrlParser: true, useUnifiedTopology: true}).then(()=> console.log("connection is successfull"))
-.catch((err) => console.log(err));
+mongoose.connect("mongodb+srv://shivansh:shivansh@123@cluster0.fbadq.mongodb.net/?retryWrites=true&w=majority");
 
 
 
