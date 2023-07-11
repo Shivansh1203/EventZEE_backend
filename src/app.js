@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const express = require("express");
 const path = require("path")
-require("./db/conn");
+require("../db/conn");
 // require("./db/contconn");
 const Register  = require("./models/registers")
 const Contact  = require("./models/contacts")
